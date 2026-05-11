@@ -6,85 +6,64 @@
   <title>Join | Upstate SC Young Birders</title>
 
   <style>
-    :root {
-      --forest: #243d2f;
-      --sage: #dfe8d8;
-      --cream: #f7f1e6;
-      --clay: #b46f43;
-      --ink: #1e2a22;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
+      margin: 0;
+      background: #f6f1e8;
+      color: #253027;
       font-family: Georgia, serif;
-      background: var(--cream);
-      color: var(--ink);
       line-height: 1.6;
     }
 
     nav {
-      padding: 1.2rem 6vw;
+      padding: .75rem 6vw;
+      background: #f6f1e8;
+      border-bottom: 1px solid rgba(47,70,55,.15);
       display: flex;
       justify-content: space-between;
-      background: var(--forest);
-      color: white;
+      align-items: center;
+    }
+
+    nav img {
+      height: 58px;
     }
 
     nav a {
-      color: white;
+      color: #2f4637;
       text-decoration: none;
       margin-left: 1rem;
       font-family: Arial, sans-serif;
       text-transform: uppercase;
-      font-size: .8rem;
       letter-spacing: .08em;
+      font-size: .78rem;
     }
 
-    .hero {
-      min-height: 70vh;
-      background:
-        linear-gradient(rgba(20,35,26,.3), rgba(20,35,26,.75)),
-        url("images/hawk-silhouette.jpg") center/cover;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 8vw;
+    main {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
     }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .content {
-      padding: 5rem 8vw;
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 2rem;
+      color: #2f4637;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.1;
     }
 
     .card {
-      background: white;
+      background: #fffdf7;
       padding: 2rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 15px 35px rgba(0,0,0,.08);
+      border-radius: 1rem;
+      border: 1px solid rgba(47,70,55,.12);
+      margin-top: 2rem;
     }
-
-    ul { margin-left: 1.2rem; }
 
     iframe {
       width: 100%;
       height: 800px;
       border: none;
-      border-radius: 1rem;
+      border-radius: .75rem;
       background: white;
-    }
-
-    @media (max-width: 800px) {
-      .content { grid-template-columns: 1fr; }
-      nav { flex-direction: column; gap: 1rem; }
     }
   </style>
 </head>
@@ -92,44 +71,36 @@
 <body>
 
 <nav>
-  <strong>Upstate SC Young Birders</strong>
+  <a href="index.html">
+    <img src="images/logo.png" alt="Upstate Young Birders logo">
+  </a>
+
   <div>
     <a href="index.html">Home</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
-<section class="hero">
-  <div>
-    <h1>Join the Club</h1>
-    <p>Beginner birders, photographers, students, and nature lovers are welcome.</p>
-  </div>
-</section>
+<main>
+  <h1>Join the Club</h1>
 
-<section class="content">
   <div class="card">
-    <h2>Get Involved</h2>
-    <p>Members can participate in:</p>
-    <br>
-    <ul>
-      <li>Bird walks</li>
-      <li>Photography outings</li>
-      <li>Bluebird monitoring</li>
-      <li>Local conservation projects</li>
-      <li>Student leadership</li>
-    </ul>
+    <p>
+      Open to ages 10 to 18.
+      The club meets monthly and is run by members.
+      Participants under 14 must be accompanied by an adult.
+    </p>
   </div>
 
   <div class="card">
     <h2>Interest Form</h2>
-    <p>Paste your Google Form embed link below.</p>
     <br>
 
     <iframe src="PASTE_GOOGLE_FORM_LINK_HERE">
       Loading…
     </iframe>
   </div>
-</section>
+</main>
 
 </body>
 </html>
