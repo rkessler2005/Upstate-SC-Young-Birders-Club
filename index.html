@@ -7,21 +7,21 @@
 
   <style>
     :root {
-      --forest: #254734;
+      --forest: #243d2f;
+      --pine: #45634d;
       --sage: #dfe8d8;
-      --cream: #f6f1e8;
+      --cream: #f7f1e6;
       --clay: #b46f43;
-      --ink: #1f2a22;
+      --water: #d8edf2;
+      --ink: #1e2a22;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Georgia, serif;
+      font-family: Georgia, "Times New Roman", serif;
       background: var(--cream);
       color: var(--ink);
       line-height: 1.6;
@@ -31,21 +31,22 @@
       position: fixed;
       top: 0;
       width: 100%;
+      z-index: 100;
+      padding: 1.2rem 6vw;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 6vw;
-      background: rgba(20, 35, 26, 0.92);
-      z-index: 100;
+      background: rgba(30, 42, 34, 0.82);
+      backdrop-filter: blur(10px);
     }
 
     .logo {
       color: white;
       font-family: Arial, sans-serif;
-      font-size: 0.9rem;
+      font-size: .82rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
+      letter-spacing: .12em;
+      font-weight: bold;
     }
 
     nav a {
@@ -53,66 +54,105 @@
       text-decoration: none;
       margin-left: 1.2rem;
       font-family: Arial, sans-serif;
+      font-size: .78rem;
       text-transform: uppercase;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
+      letter-spacing: .08em;
     }
 
     header {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(20,35,26,0.45), rgba(20,35,26,0.65)),
-        url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=80') center/cover;
+        linear-gradient(rgba(20, 35, 26, .25), rgba(20, 35, 26, .75)),
+        url("images/eagle-shore.jpg") center/cover;
+      color: white;
       display: flex;
       align-items: center;
-      padding: 0 8vw;
-      color: white;
+      padding: 8vw;
     }
 
     .hero {
       max-width: 850px;
+      margin-top: 5rem;
+    }
+
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--clay);
+      font-weight: bold;
+      font-size: .8rem;
+      margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 0.95;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: .92;
       margin-bottom: 1.5rem;
     }
 
+    h2 {
+      color: var(--forest);
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1;
+      margin-bottom: 1.4rem;
+    }
+
+    h3 {
+      color: var(--forest);
+      margin-bottom: .7rem;
+      font-size: 1.45rem;
+    }
+
     .hero p {
-      font-size: 1.2rem;
-      max-width: 650px;
-      margin-bottom: 2rem;
+      max-width: 620px;
       font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
     }
 
     .button {
       display: inline-block;
       background: var(--clay);
       color: white;
-      padding: 1rem 1.6rem;
+      padding: .95rem 1.5rem;
       border-radius: 999px;
       text-decoration: none;
       font-family: Arial, sans-serif;
-      font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: .06em;
+      font-size: .8rem;
     }
 
-    section {
-      padding: 6rem 8vw;
+    section { padding: 6rem 8vw; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 3rem;
+      align-items: center;
     }
 
-    .section-title {
-      color: var(--forest);
-      font-size: clamp(2rem, 4vw, 4rem);
-      margin-bottom: 1.5rem;
+    .photo-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 1.7rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      transform: rotate(1deg);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 1.2rem;
+      display: block;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 2rem;
     }
@@ -120,84 +160,206 @@
     .card {
       background: white;
       padding: 2rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      border-radius: 1.6rem;
+      box-shadow: 0 14px 35px rgba(0,0,0,.08);
+    }
+
+    .park-section {
+      background: var(--sage);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 1.3rem;
+    }
+
+    .gallery img:first-child {
+      height: 660px;
+      grid-row: span 2;
+    }
+
+    .events {
+      background: var(--forest);
+      color: white;
+    }
+
+    .events h2 { color: white; }
+
+    .event {
+      border-top: 1px solid rgba(255,255,255,.25);
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
+    }
+
+    .date {
+      color: var(--sage);
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: bold;
+      font-size: .82rem;
+    }
+
+    .join {
+      text-align: center;
+      background:
+        linear-gradient(rgba(247,241,230,.82), rgba(247,241,230,.95)),
+        url("images/lake-sailboat.jpg") center/cover;
+    }
+
+    .join p {
+      max-width: 650px;
+      margin: 0 auto 2rem;
     }
 
     footer {
       background: #16251c;
       color: white;
       padding: 2rem 8vw;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
       font-family: Arial, sans-serif;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 850px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      nav a { display: inline-block; margin: 0 1rem .5rem 0; }
+      .intro, .cards, .gallery, .event { grid-template-columns: 1fr; }
+      .gallery img:first-child { height: 320px; grid-row: auto; }
     }
   </style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="logo">Upstate SC Young Birders</div>
+<nav>
+  <div class="logo">Upstate SC Young Birders</div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#outings">Outings</a>
+    <a href="#gallery">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join</a>
+  </div>
+</nav>
 
+<header>
+  <div class="hero">
+    <p class="eyebrow">South Carolina Birding Club</p>
+    <h1>Birding in the Carolina foothills.</h1>
+    <p>A peaceful, youth-centered birding community for students, photographers, and nature lovers across Upstate South Carolina.</p>
+    <a class="button" href="join.html">Join the Club</a>
+  </div>
+</header>
+
+<section class="intro" id="about">
+  <div>
+    <p class="eyebrow">About the Club</p>
+    <h2>For young birders, quiet mornings, and local wild places.</h2>
+    <p>
+      Upstate SC Young Birders is a welcoming club for young people interested in birding,
+      photography, conservation, and exploring the landscapes of South Carolina.
+      Think state park mornings, field guides, lake trails, and learning birds one walk at a time.
+    </p>
+  </div>
+
+  <div class="photo-card">
+    <img src="images/dove.jpg" alt="Mourning dove in South Carolina">
+  </div>
+</section>
+
+<section class="park-section" id="outings">
+  <p class="eyebrow">What We Do</p>
+  <h2>Field walks, conservation, and bird photography.</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Bird Walks</h3>
+      <p>Beginner friendly walks around Clemson, Greenville, lakes, wetlands, forests, and state parks.</p>
+    </div>
+
+    <div class="card">
+      <h3>Photography</h3>
+      <p>Member galleries, bird photography tips, and opportunities to document local species.</p>
+    </div>
+
+    <div class="card">
+      <h3>Conservation</h3>
+      <p>Bluebird boxes, habitat awareness, citizen science, and caring for local bird habitats.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <p class="eyebrow">Local Landscape</p>
+  <h2>A soft, quiet Upstate feel.</h2>
+
+  <div class="gallery">
+    <img src="images/swamp.jpg" alt="South Carolina wetland">
+    <img src="images/pine-sky.jpg" alt="Pine tree and sky">
+    <img src="images/red-barn.jpg" alt="Red barn landscape">
+    <img src="images/mockingbird.jpg" alt="Mockingbird">
+    <img src="images/thrasher.jpg" alt="Brown thrasher">
+  </div>
+</section>
+
+<section class="events">
+  <p class="eyebrow">Upcoming Outings</p>
+  <h2>Meet us in the field.</h2>
+
+  <div class="event">
+    <div class="date">Spring</div>
     <div>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="join.html">Join</a>
+      <h3>Lake and Shoreline Bird Walk</h3>
+      <p>Look for osprey, herons, songbirds, and early morning movement along the water.</p>
     </div>
-  </nav>
+  </div>
 
-  <header>
-    <div class="hero">
-      <h1>Birding in the Carolina foothills.</h1>
-
-      <p>
-        A youth centered birding and photography community
-        for students, conservationists, and nature lovers
-        across Upstate South Carolina.
-      </p>
-
-      <a class="button" href="join.html">Join the Club</a>
+  <div class="event">
+    <div class="date">Summer</div>
+    <div>
+      <h3>Beginner Birding Morning</h3>
+      <p>A relaxed walk for new birders learning binoculars, Merlin, eBird, and common local species.</p>
     </div>
-  </header>
+  </div>
 
-  <section>
-    <h2 class="section-title">What We Do</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>Bird Walks</h3>
-        <p>
-          Group outings across Greenville, Clemson,
-          and the South Carolina foothills.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Photography</h3>
-        <p>
-          Bird photography workshops,
-          student submissions,
-          and seasonal galleries.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Conservation</h3>
-        <p>
-          Bluebird monitoring,
-          habitat projects,
-          and local conservation efforts.
-        </p>
-      </div>
-
+  <div class="event">
+    <div class="date">TBD</div>
+    <div>
+      <h3>Photography Field Day</h3>
+      <p>A slow outing focused on composition, observation, and nature photography.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2026 Upstate SC Young Birders Club
-  </footer>
+<section class="join">
+  <p class="eyebrow">Join the Club</p>
+  <h2>New birders are welcome.</h2>
+  <p>
+    Whether you are a student, photographer, beginner birder, or just someone who loves being outside,
+    we would love to hear from you.
+  </p>
+  <a class="button" href="contact.html">Email the Club</a>
+</section>
+
+<footer>
+  <p>© 2026 Upstate SC Young Birders Club</p>
+  <p>Built for young birders in Upstate South Carolina</p>
+</footer>
 
 </body>
 </html>
